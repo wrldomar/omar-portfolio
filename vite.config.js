@@ -3,5 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages project site path: https://<username>.github.io/omar-portfolio/
+  base: '/omar-portfolio/',
   plugins: [react()],
 })

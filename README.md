@@ -1,16 +1,30 @@
-# React + Vite
+# Omar Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with React and Vite.
 
-Currently, two official plugins are available:
+## Live Portfolio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+After GitHub Pages is enabled, your site will be available at:
 
-## React Compiler
+https://YOUR_GITHUB_USERNAME.github.io/omar-portfolio/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username.
 
-## Expanding the ESLint configuration
+## Deploy on GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This repo includes an automatic GitHub Actions deploy workflow in `.github/workflows/deploy.yml`.
+
+1. Push this project to your GitHub repository named `omar-portfolio`.
+2. Go to repository `Settings` > `Pages`.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Push to `main` (or run the workflow manually from the `Actions` tab).
+5. Open your live URL from the `Live Portfolio` section above.
+
+## Local Development
+
+1. Install dependencies:
+	npm install
+2. Start dev server:
+	npm run dev
+3. Build for production:
+	npm run build
