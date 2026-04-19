@@ -6,9 +6,7 @@ Personal portfolio built with React and Vite.
 
 After GitHub Pages is enabled, your site will be available at:
 
-https://YOUR_GITHUB_USERNAME.github.io/omar-portfolio/
-
-Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username.
+https://wrldomar.github.io/omar-portfolio/
 
 ## Deploy on GitHub Pages
 
