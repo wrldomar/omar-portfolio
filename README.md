@@ -14,9 +14,10 @@ This repo includes an automatic GitHub Actions deploy workflow in `.github/workf
 
 1. Push this project to your GitHub repository named `omar-portfolio`.
 2. Go to repository `Settings` > `Pages`.
-3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
-4. Push to `main` (or run the workflow manually from the `Actions` tab).
-5. Open your live URL from the `Live Portfolio` section above.
+3. Under `Build and deployment`, set `Source` to `Deploy from a branch`.
+4. Set the branch to `gh-pages` and the folder to `/ (root)`.
+5. Push to `main` to trigger the workflow, or run it manually from the `Actions` tab.
+6. Open your live URL from the `Live Portfolio` section above.
 
 ## Local Development
 
