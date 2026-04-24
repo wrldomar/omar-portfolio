@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // GitHub Pages project site path: https://<username>.github.io/omar-portfolio/
-  base: '/omar-portfolio/',
+  // Relative asset paths prevent GitHub Pages base-path mismatches.
+  base: './',
   plugins: [react()],
 })
