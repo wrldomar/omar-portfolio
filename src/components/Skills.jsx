@@ -46,6 +46,37 @@ const Skills = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="tools-platforms glass-card reveal">
+                    <h3>Outils & Plateformes</h3>
+                    <div className="tools-platforms-line"></div>
+
+                    <div className="tool-progress-item">
+                        <div className="tool-progress-head">
+                            <div className="tool-label">
+                                <span className="tool-icon">Git</span>
+                                <span>Git</span>
+                            </div>
+                            <span className="tool-percent">85%</span>
+                        </div>
+                        <div className="tool-track" aria-label="Git skill level">
+                            <div className="tool-fill" style={{ width: '85%' }}></div>
+                        </div>
+                    </div>
+
+                    <div className="tool-progress-item">
+                        <div className="tool-progress-head">
+                            <div className="tool-label">
+                                <span className="tool-icon">GH</span>
+                                <span>GitHub Actions</span>
+                            </div>
+                            <span className="tool-percent">90%</span>
+                        </div>
+                        <div className="tool-track" aria-label="GitHub Actions skill level">
+                            <div className="tool-fill" style={{ width: '90%' }}></div>
+                        </div>
+                    </div>
+                </div>
                 
                 <div className="certifications reveal">
                     <div className="cert-card glass-card">
