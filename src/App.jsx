@@ -93,8 +93,8 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
-        <Contact />
         <Certifications />
+        <Contact />
       </main>
 
       <Footer />
