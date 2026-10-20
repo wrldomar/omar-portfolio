@@ -13,86 +13,42 @@ function App() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    // 1. Sticky Navbar
-    const navbar = document.querySelector('.navbar');
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        navbar?.classList.add('scrolled');
-      } else {
-        navbar?.classList.remove('scrolled');
-      }
-
-      // 2. Active Link Highlighting
-      const sections = document.querySelectorAll('section');
-      let current = '';
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 200) {
-          current = section.getAttribute('id');
+    // Fade sections in once as they enter the viewport
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
         }
       });
-      setActiveSection(current);
-    };
+    }, { rootMargin: '0px 0px -80px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-    window.addEventListener('scroll', handleScroll);
-
-    // 3. Scroll Reveal Animation
-    const reveals = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-      const windowHeight = window.innerHeight;
-      const elementVisible = 100;
-
-      reveals.forEach((reveal) => {
-        const elementTop = reveal.getBoundingClientRect().top;
-        if (elementTop < windowHeight - elementVisible) {
-          reveal.classList.add('active');
-        }
+    // Highlight the nav link for the section in the middle of the screen
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
       });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    // Trigger once on load
-    revealOnScroll();
-
-    // 4. Smooth Scrolling for Anchor Links
-    const handleAnchorClick = (e) => {
-      if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
-        e.preventDefault();
-        const targetId = e.target.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80, // Adjust for navbar height
-            behavior: 'smooth',
-          });
-        }
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach((el) => sectionObserver.observe(el));
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('scroll', revealOnScroll);
-      document.removeEventListener('click', handleAnchorClick);
+      revealObserver.disconnect();
+      sectionObserver.disconnect();
     };
   }, []);
 
   return (
     <>
-      <div className="blob-bg"></div>
-      <div className="blob-bg blob-bg-2"></div>
-      
+      <div className="page-glow" aria-hidden="true"></div>
       <Navbar activeSection={activeSection} />
-      
+
       <main>
         <Hero />
         <About />
-        <Skills />
         <Experience />
         <Projects />
+        <Skills />
         <Certifications />
         <Contact />
       </main>
